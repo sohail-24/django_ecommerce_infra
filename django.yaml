@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: django
-          image: sohail28/django-ecommerce:latest
+          image: sohail28/django-ecommerce:2a44422
           imagePullPolicy: Always
           resources:
             requests:
