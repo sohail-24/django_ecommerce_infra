@@ -34,17 +34,19 @@ spec:
 
           readinessProbe:
             httpGet:
-              path: /
+              path: /health/
               port: 8000
-            initialDelaySeconds: 10
+            initialDelaySeconds: 30
             periodSeconds: 10
+            failureThreshold: 5
 
           livenessProbe:
             httpGet:
-              path: /
+              path: /health/
               port: 8000
-            initialDelaySeconds: 20
+            initialDelaySeconds: 60
             periodSeconds: 20
+            failureThreshold: 5
 
           env:
             - name: DJANGO_SETTINGS_MODULE
