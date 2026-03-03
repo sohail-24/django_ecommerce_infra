@@ -163,6 +163,6 @@ affinity: {}
 env:
   DJANGO_SETTINGS_MODULE: config.settings.prod
   SECRET_KEY: supersecretkey
-  ALLOWED_HOSTS: "*"
+  ALLOWED_HOSTS: "3.6.94.103,localhost,127.0.0.1"
   DATABASE_URL: postgres://postgres:postgres@postgres:5432/django_ecommerce
   REDIS_URL: redis://redis:6379/0
