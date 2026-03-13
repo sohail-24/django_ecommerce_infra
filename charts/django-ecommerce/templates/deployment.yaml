@@ -18,6 +18,14 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
 
+          command:
+            - gunicorn
+            - config.wsgi:application
+            - --bind
+            - 0.0.0.0:8000
+
+          ports:
+            - containerPort: 8000
 
           startupProbe:
             httpGet:
@@ -28,19 +36,6 @@ spec:
                   value: localhost
             failureThreshold: 30
             periodSeconds: 5
-            
-          resources:
-{{- toYaml .Values.resources | nindent 12 }}
-
-          command:
-        
-            - gunicorn
-            - config.wsgi:application 
-            - --bind
-            - 0.0.0.0:8000
-
-          ports:
-            - containerPort: 8000
 
           readinessProbe:
             httpGet:
@@ -64,27 +59,20 @@ spec:
             periodSeconds: 20
             failureThreshold: 5
 
+          resources:
+{{- toYaml .Values.resources | nindent 12 }}
 
           envFrom:
             - secretRef:
-                name: django-secret    
+                name: django-secret
+
           env:
-            
             - name: DJANGO_SETTINGS_MODULE
               value: "{{ .Values.env.DJANGO_SETTINGS_MODULE }}"
-            
+
             - name: ALLOWED_HOSTS
               value: "{{ .Values.env.ALLOWED_HOSTS }}"
-            
 
-          volumeMounts:
-            - name: media-volume
-              mountPath: /app/media
-
-      volumes:
-        - name: media-volume
-          persistentVolumeClaim:
-            claimName: django-media-pvc
 ---
 apiVersion: v1
 kind: Service
