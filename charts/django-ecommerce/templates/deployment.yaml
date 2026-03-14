@@ -13,6 +13,7 @@ spec:
       labels:
         app: django
     spec:
+      serviceAccountName: django-sa
       containers:
         - name: django
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -72,6 +73,14 @@ spec:
 
             - name: ALLOWED_HOSTS
               value: "{{ .Values.env.ALLOWED_HOSTS }}"
+            
+            - name: AWS_STORAGE_BUCKET_NAME
+  	      value: sohail-django-media-bucket
+             
+	    - name: AWS_S3_REGION_NAME
+	      value: ap-south-1
+
+
 
 ---
 apiVersion: v1
