@@ -70,15 +70,15 @@ spec:
           env:
             - name: DJANGO_SETTINGS_MODULE
               value: "{{ .Values.env.DJANGO_SETTINGS_MODULE }}"
-
+             
             - name: ALLOWED_HOSTS
               value: "{{ .Values.env.ALLOWED_HOSTS }}"
             
             - name: AWS_STORAGE_BUCKET_NAME
-  	      value: sohail-django-media-bucket
+  	          value: sohail-django-media-bucket
              
-	    - name: AWS_S3_REGION_NAME
-	      value: ap-south-1
+	        - name: AWS_S3_REGION_NAME
+	          value: ap-south-1
 
 
 
