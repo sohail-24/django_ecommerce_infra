@@ -165,6 +165,6 @@ affinity: {}
 env:
   DJANGO_SETTINGS_MODULE: config.settings.prod
   
-  ALLOWED_HOSTS: "3.6.94.103,localhost,127.0.0.1"
+  ALLOWED_HOSTS: "*"
   
 
