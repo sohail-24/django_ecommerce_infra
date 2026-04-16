@@ -166,5 +166,8 @@ env:
   DJANGO_SETTINGS_MODULE: config.settings.prod
   
   ALLOWED_HOSTS: "*"
+  AWS_STORAGE_BUCKET_NAME: sohail-django-media-2026-001
+  AWS_S3_REGION_NAME: ap-south-1
+  AWS_DEFAULT_REGION: ap-south-1
   
 
