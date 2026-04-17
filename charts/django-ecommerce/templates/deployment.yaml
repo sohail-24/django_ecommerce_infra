@@ -75,7 +75,7 @@ spec:
               value: "{{ .Values.env.ALLOWED_HOSTS }}"
               
             - name: AWS_STORAGE_BUCKET_NAME
-              value: sohail-django-media-bucket
+              value: sohail-django-media-2026-001
              
             - name: AWS_S3_REGION_NAME
               value: ap-south-1
